@@ -274,6 +274,64 @@ elif page == "Analytics":
 
     st.markdown("### Dataset Preview")
     st.dataframe(courses.head(20), use_container_width=True)
+    st.divider()
+
+st.markdown("### 3D Learner Segmentation")
+
+fig = px.scatter_3d(
+    profiles,
+    x="TotalCoursesEnrolled",
+    y="AvgSpending",
+    z="DiversityScore",
+    color="Cluster",
+    hover_name="UserID",
+    title="Courses Enrolled vs Spending vs Diversity Score"
+)
+
+st.plotly_chart(fig, use_container_width=True)
+st.divider()
+
+st.markdown("### Average Spending by Cluster")
+
+cluster_spending = profiles.groupby("Cluster")["AvgSpending"].mean().reset_index()
+
+fig = px.bar(
+    cluster_spending,
+    x="Cluster",
+    y="AvgSpending",
+    color="Cluster",
+    title="Average Spending by Cluster",
+    text_auto=".2f"
+)
+
+st.plotly_chart(fig, use_container_width=True)
+st.divider()
+
+st.markdown("### Age Distribution of Learners")
+
+fig = px.histogram(
+    profiles,
+    x="Age",
+    nbins=10,
+    title="Age Distribution of Learners"
+)
+
+st.plotly_chart(fig, use_container_width=True)
+st.divider()
+
+st.markdown("### Gender Distribution")
+
+gender_count = profiles["Gender"].value_counts().reset_index()
+gender_count.columns = ["Gender", "Count"]
+
+fig = px.pie(
+    gender_count,
+    names="Gender",
+    values="Count",
+    title="Gender Distribution of Learners"
+)
+
+st.plotly_chart(fig, use_container_width=True)
     # -----------------------------
 # About Page
 # -----------------------------
