@@ -275,7 +275,7 @@ elif page == "Analytics":
     st.markdown("### Dataset Preview")
     st.dataframe(courses.head(20), use_container_width=True)
     
-    st.divider()
+st.divider()
 st.markdown("### 3D Learner Segmentation")
 
 fig = px.scatter_3d(
