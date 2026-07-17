@@ -339,7 +339,7 @@ st.plotly_chart(fig, use_container_width=True)
     # -----------------------------
 # About Page
 # -----------------------------
-elif page == "About":
+if page == "About":
 
     st.subheader("ℹ️ About This Project")
 
