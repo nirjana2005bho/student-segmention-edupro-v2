@@ -274,7 +274,9 @@ elif page == "Analytics":
 
     st.markdown("### Dataset Preview")
     st.dataframe(courses.head(20), use_container_width=True)
+    
     st.divider()
+
 
 st.markdown("### 3D Learner Segmentation")
 
@@ -289,6 +291,7 @@ fig = px.scatter_3d(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
 st.divider()
 
 st.markdown("### Average Spending by Cluster")
@@ -305,9 +308,10 @@ fig = px.bar(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
 st.divider()
 
-st.markdown("### Age Distribution of Learners")
+st.markdown("### Age Distribution")
 
 fig = px.histogram(
     profiles,
@@ -317,6 +321,7 @@ fig = px.histogram(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
 st.divider()
 
 st.markdown("### Gender Distribution")
@@ -332,6 +337,7 @@ fig = px.pie(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
     # -----------------------------
 # About Page
 # -----------------------------
