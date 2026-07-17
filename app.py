@@ -276,8 +276,6 @@ elif page == "Analytics":
     st.dataframe(courses.head(20), use_container_width=True)
     
     st.divider()
-
-
 st.markdown("### 3D Learner Segmentation")
 
 fig = px.scatter_3d(
@@ -341,7 +339,7 @@ st.plotly_chart(fig, use_container_width=True)
     # -----------------------------
 # About Page
 # -----------------------------
-if page == "About":
+elif page == "About":
 
     st.subheader("ℹ️ About This Project")
 
